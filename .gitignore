@@ -1,0 +1,8 @@
+.DS_Store
+
+bag_files/*
+!bag_files/.gitkeep
+
+output/*
+!output/.gitkeep
+
