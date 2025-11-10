@@ -1,8 +1,21 @@
+# Bag数据文件处理&标注
 
+将 ROS bag 数据批量转换为帧图像和 MP4 视频，并提供基于 OpenCV 的预标注与 Labelme 微调辅助工具链。
+
+```
+git clone git@github.com:xinyiqin/bag_file_process.git
+cd bag_file_process
+```
 
 
 
 ## 1.首次运行
+### 先安装docker
+https://www.docker.com/products/docker-desktop
+
+```
+docker --version
+```
 ### 拉取镜像
 ```
 docker pull osrf/ros:noetic-desktop-full
@@ -51,17 +64,17 @@ docker start -ai bag_process
 
 ### 运行python代码，BAG_FILE和OUTPUT_DIR换成你的
 ```
-python3 /code/bag_to_video.py /$BAG_FILE -o /$OUTPUT_DIR
+python3 code/bag_to_video.py $BAG_FILE -o $OUTPUT_DIR
 ```
 
 ### 一次性处理目录下所有 .bag 文件，DIR_BAG_FILES换成存放很多bag文件的目录，例如/bag_files，OUTPUT_DIR是输出目录
 ```
-python3 /code/bag_to_video.py --batch $DIR_BAG_FILES -o /$OUTPUT_DIR
+python3 code/bag_to_video.py --batch $DIR_BAG_FILES -o $OUTPUT_DIR
 ```
 
 例子：
 ```
-python3 /code/bag_to_video.py --batch /bag_files -o /output
+python3 code/bag_to_video.py --batch bag_files -o output
 ```
 
 ---
