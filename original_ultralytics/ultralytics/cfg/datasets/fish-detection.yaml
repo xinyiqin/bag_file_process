@@ -1,0 +1,18 @@
+# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
+
+# Dogs dataset http://vision.stanford.edu/aditya86/ImageNetDogs/ by Stanford
+# Documentation: https://docs.ultralytics.com/datasets/pose/dog-pose/
+# Example usage: yolo train data=dog-pose.yaml
+# parent
+# ├── ultralytics
+# └── datasets
+#     └── fish-detection
+
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: /mtc/qinxinyi/bag_file_process/ultralytics/datasets/fish-detection # dataset root dir
+train: train/images # train images (relative to 'path') 6773 images
+val: val/images # val images (relative to 'path') 1703 images
+
+# Classes
+names:
+  0: Fish
