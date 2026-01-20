@@ -117,6 +117,7 @@ from ultralytics.nn.modules import (
     TripletAttention,
     CAA,
     EfficientChannelAttention,
+    FEFM,
 )
 from ultralytics.utils import DEFAULT_CFG_DICT, DEFAULT_CFG_KEYS, LOGGER, colorstr, emojis, yaml_load
 from ultralytics.utils.checks import check_requirements, check_suffix, check_yaml
@@ -1220,6 +1221,23 @@ def parse_model(d, ch, verbose=True):  # model_dict, input_channels(3)
             args = [c1, c2, *args[1:]]
         elif m is CBFuse:
             c2 = ch[f[-1]]
+        elif m is FEFM:
+            # FEFM takes two inputs and has parameters [in_channels1, in_channels2, out_channels]
+            if isinstance(f, list) and len(f) == 2:
+                c1_1, c1_2 = ch[f[0]], ch[f[1]]
+                if len(args) >= 3:
+                    # Use provided channels
+                    in_ch1 = args[0] if args[0] > 0 else c1_1
+                    in_ch2 = args[1] if args[1] > 0 else c1_2
+                    out_ch = args[2]
+                    args = [in_ch1, in_ch2, out_ch]
+                    c2 = out_ch
+                else:
+                    # Default behavior: use input channels
+                    c2 = (c1_1 + c1_2) // 2
+                    args = [c1_1, c1_2, c2]
+            else:
+                c2 = ch[f] if isinstance(f, int) else ch[f[-1]]
         elif m in {CARAFE, EMA, CoordAtt, GAM, LSKA, SEAttention, TripletAttention, CAA, EfficientChannelAttention, CBAM}:
             c2 = ch[f]
             args = [c2, *args]

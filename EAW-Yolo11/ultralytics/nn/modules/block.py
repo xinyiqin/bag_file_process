@@ -11,6 +11,7 @@ from ultralytics.utils.torch_utils import fuse_conv_and_bn
 from .conv import Conv, DWConv, GhostConv, LightConv, RepConv, autopad, CBAM
 from .transformer import TransformerBlock, AIFI, AIFIDyT
 from .metaformer import *
+from .FEFM import FEFM
 from functools import partial
 
 __all__ = (
@@ -98,6 +99,7 @@ __all__ = (
     "TripletAttention",
     "CAA",
     "EfficientChannelAttention",
+    "FEFM",
 )
 
 

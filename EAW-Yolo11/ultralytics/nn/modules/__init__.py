@@ -109,6 +109,7 @@ from .block import (
     TripletAttention,
     CAA,
     EfficientChannelAttention,
+    FEFM,
 )
 from .conv import (
     CBAM,
