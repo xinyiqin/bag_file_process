@@ -1,0 +1,5 @@
+{
+  "name": "鱼类跟踪与行为量化系统",
+  "description": "基于YOLOv11 & BoTSORT的鱼类跟踪与行为量化系统，支持轨迹分析、摄食频率监控、活动热力图及各区域行为统计。",
+  "requestFramePermissions": []
+}

@@ -3,6 +3,13 @@ numpy>=1.24.0
 opencv-python>=4.8.0
 labelme>=5.2.1
 timm>=0.9.0
+ultralytics>=8.0.0  # YOLO11 for object detection and tracking
+lapx>=0.5.2  # required by ultralytics for tracking (linear assignment)
+pandas>=1.5.0  # For tracking analysis and data export
+
+# Dataset collection dependencies
+requests>=2.28.0
+tqdm>=4.64.0
 
 # Optional:
 # - Install ROS 1 (rosbag, cv_bridge) or an equivalent environment if you need to read .bag files directly.
